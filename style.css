@@ -5,6 +5,7 @@ body {
 .img-product {
     width: 200px;
     height: 200px;
+    align-self: center;
 }
 
 .grid-products {
@@ -77,4 +78,36 @@ footer {
     background-color: #333333;
     padding-top: 50px;
     padding-bottom: 65px;
+}
+
+.title-product {
+    font-size: 16px;
+    /* margin-bottom: 63px; */
+}
+
+.price-product {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.desc-product {
+    font-size: 14px;
+    color: #787885;
+}
+
+.checked {
+    color: orange;
+}
+
+.btn-product {
+    color: #2264D1;
+    border: 1px solid #9DC2FF;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 4px 12px;
+}
+
+.line {
+    border-right: 1px solid #F89F21;
 }
