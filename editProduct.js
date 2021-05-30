@@ -73,47 +73,20 @@ const getProduct = async(id) => {
 };
 
 const fillForm = (data) => {
-    // const name = document.querySelector('#name');
-    // const price = document.querySelector('#price');
-    // const description = document.querySelector('#description');
-    // const image = document.querySelector('#image');
-    // const stars = document.querySelector('#stars');
-
     name$$.value = data[0].name;
     price$$.value = data[0].price;
     description$$.value = data[0].description;
     image$$.value = data[0].image;
     stars$$.value = data[0].stars;
-
 };
 
 const printProduct = (data) => {
     const product = data;
-    console.log('antonioo --> ', product);
-
-    // const divProduct$$ = document.createElement('div');
-    // const titleProduct$$ = document.createElement('h3');
-    // const priceProduct$$ = document.createElement('span');
-    // const descProduct$$ = document.createElement('p');
-    // const imgProduct$$ = document.createElement('img');
 
     imgProduct$$.src = product.image;
     titleProduct$$.textContent = product.name;
     descProduct$$.textContent = product.description;
     priceProduct$$.textContent = product.price + ' €';
-
-    // divProduct$$.classList.add('col', 'product-div', 'd-flex', 'flex-column', 'mb-4', 'mt-4');
-    // imgProduct$$.classList.add('img-product');
-    // titleProduct$$.classList.add('title-product');
-    // priceProduct$$.classList.add('price-product');
-    // descProduct$$.classList.add('desc-product');
-
-    // divProduct$$.appendChild(imgProduct$$);
-    // divProduct$$.appendChild(titleProduct$$);
-    // divProduct$$.appendChild(priceProduct$$);
-    // divProduct$$.appendChild(descProduct$$);
-
-    // containerProduct$$.appendChild(divProduct$$);
 
     createElements()
 

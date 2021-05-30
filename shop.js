@@ -1,15 +1,17 @@
+let dataSearch = []
 getProducts = async() => {
     const res = await fetch('http://localhost:3000/products');
     const data = await res.json();
     console.log(data);
     pintarProductos(data);
-
+    dataSearch = data;
 };
 
 pintarProductos = (products) => {
+    const container$$ = document.querySelector('.row');
+    container$$.innerHTML = '';
     products.forEach(product => {
 
-        const container$$ = document.querySelector('.row');
         const contProducts$$ = document.querySelector('.title-page');
 
         const divProduct$$ = document.createElement('div');
@@ -31,15 +33,28 @@ pintarProductos = (products) => {
         btnProduct$$.textContent = 'Editar';
         contProducts$$.textContent = 'Lista de productos (' + products.length + ')';
 
+        const starPercentage = (product.stars / 5) * 100;
+        const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
+        // document.querySelector('.stars-inner').style.width = starPercentageRounded;
+
         editProducts$$.innerHTML = `
-            <div class="rating">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-                <span>${product.stars}</span>
+            <div class="stars-outer">
+                <div class=".stars-inner" style=width:${starPercentageRounded}></div>
             </div>`;
+
+
+        // editProducts$$.innerHTML = `
+        // <div class="stars-outer">
+        //     <div class="stars-inner"></div>
+        // </div>
+        // <div class="rating">
+        //     <span class="fa fa-star checked"></span>
+        //     <span class="fa fa-star checked"></span>
+        //     <span class="fa fa-star checked"></span>
+        //     <span class="fa fa-star"></span>
+        //     <span class="fa fa-star"></span>
+        //     <span>${product.stars}</span>
+        // </div>`;
 
         editProducts$$.appendChild(btnProduct$$);
 
@@ -71,3 +86,12 @@ openProduct = (product) => {
 }
 
 getProducts();
+
+const input$$ = document.querySelector('input');
+input$$.addEventListener('input', (event) => {
+    console.log('Buscador --> ', event.target.value);
+    let filteredData = dataSearch.filter((product) =>
+        product.name.toLowerCase().includes(event.target.value.toLowerCase()))
+    console.log('filtrado --> ', filteredData);
+    pintarProductos(filteredData);
+})
