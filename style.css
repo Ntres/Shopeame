@@ -125,8 +125,8 @@ footer {
     font-family: FontAwesome;
 }
 
-.stars-outer::before {
-    content: "\f006 \f006 \f006 \f006 \f006";
+.stars-outer:before {
+    content: '\f006 \f006 \f006 \f006 \f006';
 }
 
 .stars-inner {
@@ -138,7 +138,7 @@ footer {
     width: 0;
 }
 
-.stars-inner::before {
-    content: "\f005 \f005 \f005 \f005 \f005";
-    color: #f8ce0b;
+.stars-inner:before {
+    content: '\f005 \f005 \f005 \f005 \f005';
+    color: orange;
 }

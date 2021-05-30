@@ -35,26 +35,15 @@ pintarProductos = (products) => {
 
         const starPercentage = (product.stars / 5) * 100;
         const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
-        // document.querySelector('.stars-inner').style.width = starPercentageRounded;
 
         editProducts$$.innerHTML = `
+        <div>
             <div class="stars-outer">
-                <div class=".stars-inner" style=width:${starPercentageRounded}></div>
-            </div>`;
+                <div class="stars-inner" style=width:${starPercentageRounded}></div>
+            </div>
+            <span>${product.stars}</span>
+        </div>`;
 
-
-        // editProducts$$.innerHTML = `
-        // <div class="stars-outer">
-        //     <div class="stars-inner"></div>
-        // </div>
-        // <div class="rating">
-        //     <span class="fa fa-star checked"></span>
-        //     <span class="fa fa-star checked"></span>
-        //     <span class="fa fa-star checked"></span>
-        //     <span class="fa fa-star"></span>
-        //     <span class="fa fa-star"></span>
-        //     <span>${product.stars}</span>
-        // </div>`;
 
         editProducts$$.appendChild(btnProduct$$);
 
