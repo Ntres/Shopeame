@@ -78,9 +78,8 @@ getProducts();
 
 const input$$ = document.querySelector('input');
 input$$.addEventListener('input', (event) => {
-    console.log('Buscador --> ', event.target.value);
     let filteredData = dataSearch.filter((product) =>
         product.name.toLowerCase().includes(event.target.value.toLowerCase()))
-    console.log('filtrado --> ', filteredData);
+
     pintarProductos(filteredData);
 })
